@@ -27,11 +27,11 @@ export class Store implements IStore {
   defaultPolicy: Permission = "rw";
 
   allowedToRead(key: string): boolean {
-    throw new Error("Method not implemented.");
+    return key === 'r' || key === 'rw'
   }
 
   allowedToWrite(key: string): boolean {
-    throw new Error("Method not implemented.");
+    return key === 'w' || key === 'rw'
   }
 
   read(path: string): StoreResult {
